@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "./out",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es2017",
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "jsx": "react",
+    "sourceMap": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "preserveWatchOutput": true
+  },
+  "include": [
+    "./src/**/*"
+  ]
+}

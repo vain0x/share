@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Share</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" type="text/css" media="screen" href="index.css"> -->
+  <!-- <script src="index.js"></script> -->
+  <style>
+    body {
+      margin: 16px;
+      padding: 0;
+    }
+
+    section,
+    form {
+      display: flex;
+      flex-flow: column nowrap;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-gap: 16px;
+    }
+
+    button {
+      grid-column: 1 / 3;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <form action="/entry" method="POST">
+      <label for="key-input-id" class="label-heading">
+        Key
+      </label>
+
+      <input
+        type="text" name="key" id="key-input-id"
+        autofocus required max-length="1000" />
+
+      <label for="value-input-id" class="label-heading">
+        Value
+      </label>
+
+      <textarea
+        name="value" id="value-input-id"
+        required max-length="4000" rows="4"></textarea>
+
+      <button>
+        Submit
+      </button>
+    </form>
+
+    <h2>Caution</h2>
+
+    <section>
+      Never submit password or secret things.
+    </section>
+  </main>
+</body>
+
+</html>
