@@ -1,7 +1,7 @@
 import express from "express"
 import cors from "cors"
 import * as path from "path"
-import { getEntry, setEntry } from "./data";
+import { getEntry, setEntry, initializeEntries } from "./data"
 
 interface WebEnv {
   WEB_HOSTNAME?: string,
@@ -10,6 +10,8 @@ interface WebEnv {
 }
 
 export const webStart = async (envUnknown: unknown, subs: any[]) => {
+  initializeEntries()
+
   const env = envUnknown as WebEnv
 
   const hostname = env.WEB_HOSTNAME || "localhost"
