@@ -1,12 +1,12 @@
 const API_URL = "https://share.vain0x.tk"
 
 const main = () => {
-  const query = document.location.search
-  if (query) {
-    const url = `${API_URL}/entry?key=${encodeURIComponent(query)}`
+  const key = (document.location.search || "").slice(1)
+  if (key) {
+    const url = `${API_URL}/entry?key=${encodeURIComponent(key)}`
     fetch(url)
       .then(res => {
-        if (!res.ok()) {
+        if (!res.ok) {
           throw new Error(res.statusText)
         }
 
