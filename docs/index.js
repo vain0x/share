@@ -1,4 +1,4 @@
-const API_URL = "http://vain0x.tk"
+const API_URL = "https://share.vain0x.tk"
 
 const main = () => {
   const query = document.location.search
