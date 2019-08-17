@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "outDir": "./out",
+    "outDir": "out",
     "module": "commonjs",
     "moduleResolution": "node",
     "target": "es2017",

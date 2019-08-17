@@ -9,12 +9,12 @@ interface WebEnv {
   WEB_HOME?: string,
 }
 
-export const webStart = async (envUnknown: unknown) => {
+export const webStart = async (envUnknown: unknown, subs: any[]) => {
   const env = envUnknown as WebEnv
 
   const hostname = env.WEB_HOSTNAME || "localhost"
   const port = +(env.WEB_PORT || "80")
-  const indexPath = path.resolve(__dirname, "../../docs/index.html")
+  const indexPath = path.resolve(__dirname, "../docs/index.html")
   const homeUrl = env.WEB_HOME || "/"
 
   const app = express()
@@ -47,7 +47,9 @@ export const webStart = async (envUnknown: unknown) => {
     return res.redirect(homeUrl)
   })
 
-  app.listen(port, () => {
+  const server = app.listen(port, () => {
     console.debug(`Listening at http://${hostname}:${port}`)
   })
+
+  subs.push(() => server.close())
 }

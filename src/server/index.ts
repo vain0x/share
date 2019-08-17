@@ -1,9 +1,3 @@
-import { webStart } from "./infra-web"
+import { main } from "./infra-main"
 
-const main = async () => {
-  const env = process.env as unknown
-
-  await webStart(env)
-}
-
-main()
+main([])
