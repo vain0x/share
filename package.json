@@ -12,9 +12,9 @@
     "dev": "yarn && run-p dev:*",
     "dev:server-build": "tsc -w",
     "dev:server-serve": "cross-env NODE_ENV=development WEB_PORT=8080 WEB_HOME=/ node scripts/serve.js",
-    "prod": "yarn && run-s prod:check prod:server-serve",
-    "prod:check": "tsc --noEmit",
-    "prod:server-serve": "cross-env NODE_ENV=production ts-node ./src/server/index.ts"
+    "prod": "yarn && run-s prod:server-build prod:server-serve",
+    "prod:server-build": "tsc -b",
+    "prod:server-serve": "cross-env NODE_ENV=production node ./out/index.js"
   },
   "dependencies": {
     "@types/cors": "^2.8.5",
