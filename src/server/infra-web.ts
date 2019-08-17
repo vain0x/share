@@ -15,6 +15,7 @@ export const webStart = async (envUnknown: unknown, subs: any[]) => {
   const hostname = env.WEB_HOSTNAME || "localhost"
   const port = +(env.WEB_PORT || "80")
   const indexPath = path.resolve(__dirname, "../docs/index.html")
+  const indexJsPath = path.resolve(__dirname, "../docs/index.js")
   const homeUrl = env.WEB_HOME || "/"
 
   const app = express()
@@ -28,6 +29,10 @@ export const webStart = async (envUnknown: unknown, subs: any[]) => {
 
   app.get("/", (_req, res) => {
     return res.sendFile(indexPath)
+  })
+
+  app.get("/index.js", (_req, res) => {
+    return res.sendFile(indexJsPath)
   })
 
   app.get("/entry", cors(), (req, res) => {
